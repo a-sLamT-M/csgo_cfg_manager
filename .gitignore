@@ -1,0 +1,6 @@
+# 项目排除路径
+/cmake-build-debug/
+/cmake-build-default-qtmingw/
+/cmake-build-minsizerel/
+/cmake-build-release/
+/cmake-build-relwithdebinfo/
