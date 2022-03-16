@@ -1,6 +1,3 @@
-//
-// Created by Lam T(offline) on 2022/3/14.
-//
 
 #ifndef CSGO_CFG_MANAGER_UTILS_H
 #define CSGO_CFG_MANAGER_UTILS_H
