@@ -18,7 +18,7 @@ public:
 
     ~reg_exception() override { delete information; }
 
-    const char * what () const throw () override
+    [[nodiscard]] const char * what () const noexcept override
     {
         return information;
     }
@@ -27,5 +27,5 @@ private:
     const char *information;
     std::string path;
 };
-};
+
 #endif //CSGO_CFG_MANAGER_REG_EXCEPTION_H

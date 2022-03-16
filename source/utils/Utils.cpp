@@ -5,7 +5,7 @@
 #include "Utils.h"
 
 template<typename T>
-wchar_t * ct_wu::Utils::string_to_wchar_t(const T &T_string) const
+wchar_t * ct_wu::Utils::string_to_wchar_t(const T &T_string)
 {
     std::string std_string = nullptr;
 
@@ -19,7 +19,7 @@ wchar_t * ct_wu::Utils::string_to_wchar_t(const T &T_string) const
     return _wcsdup(wstr.c_str());
 }
 
-std::string * ct_wu::Utils::wchar_t_to_string(const wchar_t *wchar) const
+std::string * ct_wu::Utils::wchar_t_to_string(const wchar_t *wchar)
 {
     std::wstring wstr(wchar);
     std::string str(wstr.begin(), wstr.end());

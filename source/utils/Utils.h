@@ -18,8 +18,8 @@ namespace ct_wu
         Utils() = default;
 
         template<typename T>
-        wchar_t * string_to_wchar_t(const T &T_string) const;
-        std::string * wchar_t_to_string(const wchar_t *wchar) const;
+        wchar_t * string_to_wchar_t(const T &T_string);
+        std::string * wchar_t_to_string(const wchar_t *wchar);
     };
 }
 

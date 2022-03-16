@@ -15,9 +15,7 @@ namespace ct_wu
     {
     public:
         WindowsUtils() = default;
-#if defined (_WIN32)
-        const std::string * getRegVal(const std::string&, HKEY__ *, const std::string&);
-#endif
+        std::string * getRegVal(const std::string&, HKEY__ *, const std::string&);
     };
 }
 

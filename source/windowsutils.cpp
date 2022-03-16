@@ -1,7 +1,6 @@
 #include "../header/windowsutils.h"
 
-
-const std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *rootKey, const std::string& name)
+std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *rootKey, const std::string& name)
 {
     std::unique_ptr<ct_wu::Utils> utils(new ct_wu::Utils());
 
@@ -29,13 +28,13 @@ const std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY
             &szModule);
 
     std::string *str = utils->wchar_t_to_string(cresult);
-
+    std::string *test = new std::string ("Oh Oh Oh");
     wpath = nullptr;
     wname = nullptr;
     delete wname;
     delete wpath;
 
-    if (isSuccess)
+    if (isSuccess == ERROR_SUCCESS)
     {
         throw reg_exception
         ("Failed to read Reg Value. Code: "
@@ -43,13 +42,15 @@ const std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY
         + " - " + path
         + " - " + name);
     }
-    if (isSuccess2)
+    else if (isSuccess2 == ERROR_SUCCESS)
     {
         throw reg_exception
         ("Failed to read Reg Value. Code: " + std::to_string(isSuccess2)
         + " - " + path
         + " - " + name);
     }
-
-    return str;
+    else
+    {
+        return test;
+    }
 }

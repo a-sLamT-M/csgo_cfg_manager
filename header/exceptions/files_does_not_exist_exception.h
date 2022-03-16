@@ -14,7 +14,7 @@ public:
 
     ~files_does_not_exist_exception() override { delete information; }
 
-    const char * what () const throw () override
+    [[nodiscard]] const char * what () const noexcept override
     {
         return information;
     }
