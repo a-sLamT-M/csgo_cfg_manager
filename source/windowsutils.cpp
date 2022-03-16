@@ -1,6 +1,7 @@
 #include "../header/windowsutils.h"
 
-std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *rootKey, const std::string& name)
+
+const std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *rootKey, const std::string& name)
 {
     std::unique_ptr<ct_wu::Utils> utils(new ct_wu::Utils());
 
@@ -8,8 +9,8 @@ std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *ro
     wchar_t cresult[1024];
     DWORD szModule = MAXDWORD;
 
-    wchar_t *wpath = utils->std_string_to_wchar_t(path);
-    wchar_t *wname = utils->std_string_to_wchar_t(name);
+    wchar_t *wpath = utils->string_to_wchar_t(path);
+    wchar_t *wname = utils->string_to_wchar_t(name);
 
     LPCTSTR hData = wpath;
 
@@ -27,14 +28,14 @@ std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *ro
             (LPBYTE) &cresult,
             &szModule);
 
-    std::string *str = utils->wchar_t_to_std_string(cresult);
-    std::string *test = new std::string ("Oh Oh Oh");
+    std::string *str = utils->wchar_t_to_string(cresult);
+
     wpath = nullptr;
     wname = nullptr;
     delete wname;
     delete wpath;
 
-    if (isSuccess == ERROR_SUCCESS)
+    if (isSuccess)
     {
         throw reg_exception
         ("Failed to read Reg Value. Code: "
@@ -42,15 +43,13 @@ std::string * ct_wu::WindowsUtils::getRegVal(const std::string& path, HKEY__ *ro
         + " - " + path
         + " - " + name);
     }
-    else if (isSuccess2 == ERROR_SUCCESS)
+    if (isSuccess2)
     {
         throw reg_exception
         ("Failed to read Reg Value. Code: " + std::to_string(isSuccess2)
         + " - " + path
         + " - " + name);
     }
-    else
-    {
-        return test;
-    }
+
+    return str;
 }
