@@ -4,8 +4,10 @@
 #include <Windows.h>
 #include <string>
 #include <QMessageBox>
+#include <memory>
 #include "../header/exceptions/invalid_path_exception.h"
-#include "../source/utils/utils.h"
+#include "../source/utils/Utils.h"
+#include "../header/exceptions/reg_exception.h"
 
 namespace ct_wu
 {
@@ -14,7 +16,7 @@ namespace ct_wu
     public:
         WindowsUtils() = default;
 #if defined (_WIN32)
-        const std::string getHEKY(const std::string&, HKEY__ *, const std::string&);
+        const std::string * getRegVal(const std::string&, HKEY__ *, const std::string&);
 #endif
     };
 }

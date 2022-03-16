@@ -14,7 +14,7 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(csgo_cfg_manager source/main.cpp source/mainwindow.cpp source/windowsutils.cpp source/cfgmanager.cpp header/mainwindow.h header/windowsutils.h header/cfgmanager.h header/exceptions/files_does_not_exist_exception.h header/exceptions/invalid_path_exception.h header/exceptions/csgo_cfg_runtime_exception.h source/utils/utils.cpp source/utils/utils.h)
+add_executable(csgo_cfg_manager source/main.cpp source/mainwindow.cpp source/windowsutils.cpp source/cfgmanager.cpp header/mainwindow.h header/windowsutils.h header/cfgmanager.h header/exceptions/files_does_not_exist_exception.h header/exceptions/invalid_path_exception.h header/exceptions/csgo_cfg_runtime_exception.h source/utils/Utils.cpp source/utils/Utils.h header/exceptions/reg_exception.h)
 target_link_libraries(csgo_cfg_manager
         Qt::Core
         Qt::Gui

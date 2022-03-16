@@ -12,12 +12,14 @@
 
 namespace ct_wu
 {
-    class utils
+    class Utils
     {
     public:
-        utils() = default;
+        Utils() = default;
+
         template<typename T>
-        const wchar_t * string_to_wchar_t(const T &T_string) const;
+        wchar_t * string_to_wchar_t(const T &T_string) const;
+        std::string * wchar_t_to_string(const wchar_t *wchar) const;
     };
 }
 
