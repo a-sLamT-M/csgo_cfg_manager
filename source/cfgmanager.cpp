@@ -30,25 +30,19 @@ void CfgManager::setCsgoCatalog(const std::string &csgoCl)
 {
     try
     {
-        if (checkPathValid(csgoCl))
+        if (ct_wu::Utils::isFolderExist(csgoCl))
         {
             csgoCatalog = csgoCl;
+        }
+        else
+        {
+            throw invalid_path_exception(csgoCl);
         }
     }
     catch (invalid_path_exception e)
     {
         // 显示一个窗口，表示这路径有误
     }
-}
-
-bool CfgManager::checkPathValid(const std::string path) const
-{
-    struct stat buffer;
-    if(!stat(path.c_str(), &buffer))
-    {
-        throw new invalid_path_exception(path);
-    }
-    return true;
 }
 
 const std::string CfgManager::getCsgoPathFromSystem()

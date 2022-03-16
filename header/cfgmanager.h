@@ -56,9 +56,6 @@ public:
 
     void setCsgoCatalog(const std::string &csgoCl);
 
-    bool checkPathValid(const std::string path) const;
-
-
 private:
     std::string csgoCatalog = nullptr;
     std::string steamCatalog = nullptr;

@@ -1,7 +1,4 @@
-//
-// Created by Lam T on 2022/3/14.
-//
-
+#include <sys/stat.h>
 #include "Utils.h"
 
 template<typename T>
@@ -24,4 +21,16 @@ std::string * ct_wu::Utils::wchar_t_to_string(const wchar_t *wchar) const
     std::wstring wstr(wchar);
     std::string str(wstr.begin(), wstr.end());
     return new std::string(str);
+}
+
+bool ct_wu::Utils::isFolderExist(const std::string path)
+{
+    struct stat info{};
+    return (stat(path.c_str(), &info) == 0 && (info.st_mode & S_IFDIR));
+}
+
+bool ct_wu::Utils::isFileExist(const std::string path)
+{
+    struct stat info{};
+    return (stat(path.c_str(), &info) == 0 && (info.st_mode & S_IFREG));
 }
