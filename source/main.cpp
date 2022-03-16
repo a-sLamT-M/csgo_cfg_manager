@@ -3,6 +3,7 @@
 #include <QTranslator>
 
 #include "../header/mainwindow.h"
+#include "../header/cfgmanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
     MainWindow w;
     w.show();
     return a.exec();

@@ -6,12 +6,12 @@
 class csgo_cfg_runtime_exception : public std::exception
 {
 public:
-    virtual const char *what () const throw ()
+    virtual const char *what () const noexcept override
     {
       return "Unexpected Error.";
     }
 
-    virtual ~csgo_cfg_runtime_exception () = 0;
+    ~csgo_cfg_runtime_exception () override = default;
 };
 
 #endif // CSGO_CFG_RUNTIME_EXCEPTION_H

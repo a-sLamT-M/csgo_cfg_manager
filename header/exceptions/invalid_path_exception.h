@@ -14,7 +14,7 @@ public:
 
     ~invalid_path_exception() override { delete information; }
 
-    const char * what () const throw () override
+    [[nodiscard]] const char * what () const noexcept override
     {
         return information;
     }
